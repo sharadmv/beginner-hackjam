@@ -49,7 +49,7 @@ $ mkdir cheeper
 
 We want to make the `cheeper` directory a `virtualenv` environment, so we run the command:
 ```
-$ virtualenv -p python3 cheeper/
+$ virtualenv -p python2.7 cheeper/
 ```
 
 If you look inside `cheeper` now, you'll see that there are now 3 folders inside called `bin/`,`include/`, and `lib/`.
@@ -68,12 +68,13 @@ Whoa, this is awesome. You're in your own sandbox now. You can see what librarie
 $ pip freeze
 ```
 
+To leave your `virtualenv`, just run:
+```
+$ deactivate
+```
+
 We'll be using `virtualenv` more in the next section. If you're curious as to what else it can do, look up more on [this site](https://pypi.python.org/pypi/virtualenv).
 
 Step 3: Flask
 =====================================
 [Flask](http://flask.pocoo.org/) is a Python web framework. 
-
-
-
-
