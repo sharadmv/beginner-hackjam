@@ -11,14 +11,16 @@ After you finish this, you'll have:
 Step 1: Learn and install Python
 =========================
 
-The rest of the guide will assume some basic knowledge of the Python 3 language. Hopefully you've picked up from Python from 61A, but if you haven't, head over to the official Python [tutorial](http://docs.python.org/tutorial), which is pretty good! You can install 
+The rest of the guide will assume some basic knowledge of the Python 2 language. Hopefully you've picked up from Python from 61A, but if you haven't, head over to the official Python [tutorial](http://docs.python.org/tutorial), which is pretty good! 
+
+You need to install Python 2.7 to complete this hack. You can do that [here](http://www.python.org/download/releases/2.7/).
 
 Step 2: Set up your environment
 ================================
 
 Before any hack, you need to make sure all your dependencies are set up. 
 
-Python has two amazing tools, called `virtualenv` an `pip` that enable developers to create sandboxes for their projects and easily install any online packages and libraries that other people have written. We'll be using mainly these two tools.
+Python has two amazing tools, called `virtualenv` and `pip` that enable developers to create sandboxes for their projects and easily install any online packages and libraries that other people have written. We'll be using mainly these two tools.
 
 The first thing you need is to make sure you have a Python package called `setuptools` installed. Here's how to install it:
 
@@ -59,6 +61,7 @@ $ source bin/activate
 
 Your terminal prompt should now have a `(cheeper)` at the front. This is how you know you're inside your virtual environment. 
 
+
 Whoa, this is awesome. You're in your own sandbox now. You can see what libraries you currently have installed by running:
 
 ```
@@ -67,8 +70,9 @@ $ pip freeze
 
 We'll be using `virtualenv` more in the next section. If you're curious as to what else it can do, look up more on [this site](https://pypi.python.org/pypi/virtualenv).
 
-
-
+Step 3: Flask
+=====================================
+[Flask](http://flask.pocoo.org/) is a Python web framework. 
 
 
 
