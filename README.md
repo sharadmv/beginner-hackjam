@@ -87,3 +87,20 @@ $ pip install flask
 ```
 
 Wow that was simple (hopefully)! Remember that if at any point, stuff isn't installing/working properly, ask a neighbour the nearest H@B office for help.
+
+Okay, so let's get started with Flask. 
+
+First, what exactly is a web framework? When a person goes to a website, they send a request to that website, asking for the site's content. Since we're building the website, our web framework, Flask, will handle requests that are sent to us, and send back our site's content.
+
+Let's try running the "Hello World" example on the [Flask website](http://flask.pocoo.org).
+
+Copy and paste the example and put it into a file called `server.py`. This code imports Flask, creates an application (`app`), and defines a "route" (we'll go over that in a second), and finally starts up the server.
+
+Try running it to make sure Flask was installed correctly.
+```
+$ python server.py
+```
+If it says Flask isn't importing, make sure you're in the `virtualenv`.
+If it says something like: "Running on http://127.0.0.1:5000", then it's working! Test it yourself by going to either `localhost:5000` or `127.0.0.1:5000` in your favorite browser. It should say "Hello World!".
+
+Note: both `localhost` and `127.0.0.1` are addresses for your own computer and `5000` is the "port" number.
