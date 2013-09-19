@@ -75,7 +75,7 @@ $ deactivate
 
 We'll be using `virtualenv` more in the next section. If you're curious as to what else it can do, look up more on [this site](https://pypi.python.org/pypi/virtualenv).
 
-Step 3: Flask
+Step 3: Setting up Flask
 =====================================
 [Flask](http://flask.pocoo.org/) is a Python web framework.
 
@@ -105,4 +105,31 @@ If it says something like: "Running on http://127.0.0.1:5000", then it's working
 
 > *Note*: both `localhost` and `127.0.0.1` are addresses for your own computer and `5000` is the "port" number.
 
-Now that you have this working, please go through the examples on the Flask [quick start page](http://flask.pocoo.org/docs/quickstart/) and familiarize yourself with the Flask framework.
+Now that you have this working, please go through the examples on the Flask [quick start page](http://flask.pocoo.org/docs/quickstart/) and familiarize yourself with the Flask framework. Make sure you understand what a route is and how to do routing with Flask. Hint: decorators.
+
+Step 4: Creating a user interface
+===========================
+Let's create our home page for Cheeper. Create a directory in your `cheeper` directory called `static`. This will be the folder for our *static* files, or the files that don't change and are just retrieved and sent down by Flask when a browser asks for them.
+
+Your project directory should look like this now:
+```
+cheeper/
+    bin/
+    include/
+    lib/
+    local/
+    server.py
+    static/
+```
+
+Now inside your static folder, create a file called `index.html`.
+In it, put the following skeleton.
+```html
+<html>
+  <head>
+    <title>Cheeper - better than Twitter</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
