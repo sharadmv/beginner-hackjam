@@ -144,7 +144,7 @@ Now, I suggest reading up on the basics of HTML. Make sure you understand how to
 
 So now for some user interface design (which is something I, the writer of this guide, am terrible at, so feel free to rage at my designs). And of course, if you are design inclined yourself, feel free to throw away my suggestions and use your own.
 
-Our Cheeper© webpage should include some glamorous logo, a space to type your cheep and cheep it to the world. We also need a feed, for all the cheeps that have been cheeped.
+Our Cheeper© webpage should include some glamorous logo and a space to type your cheep and cheep it to the world. We also need a feed, to display all the cheeps that have been cheeped.
 
 First let's add the logo, which will just be really big text. We can do this with the `<h1>`. Add an `<h1>` tag into the body of `index.html`, which will be our logo.
 
@@ -195,16 +195,18 @@ Cool! This is possibly the best UI I've ever designed. If you feel that it needs
 
 Step 5: Serving static webpages
 ===========================
-Our html page, `index.html` is only visible on our own computers right now. We need to hook it up to our Flask server, which is accessible from other computers. We can do this pretty easy with some Flask magic.
+Our html page, `index.html` is only visible on our own computers right now. We need to hook it up to our Flask server, which is accessible from other computers. We can do this pretty easily with some Flask magic.
 
 Flask's job will be to grab `index.html` and return it for the route `/`.
 
 We can do this by modifying our `server.py`. Modify the `hello` method to return `index.html` instead.
 
 ```python
+...
 @app.route("/")
 def hello():
     return app.send_static_file('index.html')
+...
 ```
 
 Restart your server to see the changes by going to `localhost:5000`.
