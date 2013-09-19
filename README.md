@@ -205,3 +205,7 @@ We can do this by modifying our `server.py`. Modify the `hello` method to return
 def hello():
     return app.send_static_file('index.html')
 ```
+
+Restart your server to see the changes by going to `localhost:5000`.
+
+> *Note*: You can see your changes to `index.html` immediately by just refreshing, but you need to restart your server everytime you modify `server.py` to see the changes.
