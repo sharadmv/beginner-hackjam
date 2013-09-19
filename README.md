@@ -2,7 +2,7 @@ Introduction
 ======================
 Welcome to Hack Jam 2013! If you don't know already, a Hack Jam is a low-stakes, low-pressure, shorter hackathon that Hackers at Berkeley holds at least once every semester.
 
-If you've never hacked before, don't be afraid! This is a guide that will help you through your first hack. We'll be building Cheeper, a lightweight, simpler version of Twitter.
+If you've never hacked before, don't be afraid! This is a guide that will help you through your first hack. We'll be building Cheeper©, a lightweight, simpler version of Twitter.
 
 After you finish this, you'll have:
 
@@ -109,7 +109,7 @@ Now that you have this working, please go through the examples on the Flask [qui
 
 Step 4: Creating a user interface
 ===========================
-Let's create our home page for Cheeper. Create a directory in your `cheeper` directory called `static`. This will be the folder for our *static* files, or the files that don't change and are just retrieved and sent down by Flask when a browser asks for them.
+Let's create our home page for Cheeper©. Create a directory in your `cheeper` directory called `static`. This will be the folder for our *static* files, or the files that don't change and are just retrieved and sent down by Flask when a browser asks for them.
 
 Your project directory should look like this now:
 ```
@@ -127,7 +127,7 @@ In it, put the following skeleton.
 ```html
 <html>
   <head>
-    <title>Cheeper - better than Twitter</title>
+    <title>Cheeper© - better than Twitter</title>
   </head>
   <body>
   Hello World!
@@ -143,14 +143,14 @@ Now, I suggest reading up on the basics of HTML. Make sure you understand how to
 
 So now for some user interface design (which is something I, the writer of this guide, am terrible at, so feel free to rage at my designs). And of course, if you are design inclined yourself, feel free to throw away my suggestions and use your own.
 
-Our Cheeper webpage should include some glamorous logo, a space to type your cheep and cheep it to the world. We also need a feed, for all the cheeps that have been cheeped.
+Our Cheeper© webpage should include some glamorous logo, a space to type your cheep and cheep it to the world. We also need a feed, for all the cheeps that have been cheeped.
 
 First let's add the logo, which will just be really big text. We can do this with the `<h1>`. Add an `<h1>` tag into the body of `index.html`, which will be our logo.
 
 ```html
 ...
 <body>
-  <h1>Cheeper</h1>
+  <h1>Cheeper©</h1>
 </body>
 ...
 ```
@@ -160,7 +160,7 @@ Now let's add the form to write and submit your cheeps. Cheeps are only 76 chara
 ```html
 ...
 <body>
-  <h1>Cheeper</h1>
+  <h1>Cheeper©</h1>
   <form>
     Name:
     <input type="text" /> 
@@ -168,6 +168,25 @@ Now let's add the form to write and submit your cheeps. Cheeps are only 76 chara
     <input type="text" maxlength="76"/> 
     <input type="submit">
   </form>
+</body>
+...
+```
+
+Awesome! Our awesome, beautiful user interface is almost done. Let's now add a splace for the Cheeper© feed to appear.
+
+```html
+...
+<body>
+  <h1>Cheeper©</h1>
+  <form>
+    Name:
+    <input type="text" /> 
+    Cheep:
+    <input type="text" maxlength="76"/> 
+    <input type="submit">
+  </form>
+  <div id="feed">
+  </div>
 </body>
 ...
 ```
