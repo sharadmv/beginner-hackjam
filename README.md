@@ -127,7 +127,7 @@ In it, put the following skeleton.
 ```html
 <html>
   <head>
-    <title>Cheeper© - better than Twitter</title>
+    <title>Cheeper - better than Twitter</title>
   </head>
   <body>
   Hello World!
@@ -150,7 +150,7 @@ First let's add the logo, which will just be really big text. We can do this wit
 ```html
 ...
 <body>
-  <h1>Cheeper©</h1>
+  <h1>Cheeper</h1>
 </body>
 ...
 ```
@@ -160,13 +160,13 @@ Now let's add the form to write and submit your cheeps. Cheeps are only 76 chara
 ```html
 ...
 <body>
-  <h1>Cheeper©</h1>
+  <h1>Cheeper</h1>
   <form>
     Name:
-    <input type="text" /> 
+    <input name="name" type="text" /> 
     Cheep:
-    <input type="text" maxlength="76"/> 
-    <input type="submit">
+    <input name="cheep" type="text" maxlength="76" /> 
+    <input type="submit" />
   </form>
 </body>
 ...
@@ -177,16 +177,31 @@ Awesome! Our awesome, beautiful user interface is almost done. Let's now add a s
 ```html
 ...
 <body>
-  <h1>Cheeper©</h1>
+  <h1>Cheeper</h1>
   <form>
     Name:
-    <input type="text" /> 
+    <input name="name" type="text" /> 
     Cheep:
-    <input type="text" maxlength="76"/> 
-    <input type="submit">
+    <input name="cheep" type="text" maxlength="76" /> 
+    <input type="submit" />
   </form>
   <div id="feed">
   </div>
 </body>
 ...
+```
+Cool! This is possibly the best UI I've ever designed. If you feel that it needs improvement, make it look as pretty as you want. Look into using *CSS*.
+
+Step 5: Serving static webpages
+===========================
+Our html page, `index.html` is only visible on our own computers right now. We need to hook it up to our Flask server, which is accessible from other computers. We can do this pretty easy with some Flask magic.
+
+Flask's job will be to grab `index.html` and return it for the route `/`.
+
+We can do this by modifying our `server.py`. Modify the `hello` method to return `index.html` instead.
+
+```python
+@app.route("/")
+def hello():
+    return app.send_static_file('index.html')
 ```
