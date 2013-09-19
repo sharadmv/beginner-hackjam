@@ -103,4 +103,6 @@ $ python server.py
 If it says Flask isn't importing, make sure you're in the `virtualenv`.
 If it says something like: "Running on http://127.0.0.1:5000", then it's working! Test it yourself by going to either `localhost:5000` or `127.0.0.1:5000` in your favorite browser. It should say "Hello World!".
 
-Note: both `localhost` and `127.0.0.1` are addresses for your own computer and `5000` is the "port" number.
+> *Note*: both `localhost` and `127.0.0.1` are addresses for your own computer and `5000` is the "port" number.
+
+Now that you have this working, please go through the examples on the Flask [quick start page](http://flask.pocoo.org/docs/quickstart/) and familiarize yourself with the Flask framework.
