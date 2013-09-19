@@ -34,7 +34,7 @@ Installing `setuptools` will give you a command line tool called `easy_install`,
 
 Enter the following in your terminal to install `virtualenv`.
 ```
-sudo easy_install virtualenv
+$ sudo easy_install virtualenv
 ```
 
 Now a quick word about `virtualenv`. It's a Python tool that allows you to create "sandboxes," or isolated environments in which you can code. When you need a Python library, you could install it globally, which means all your Python projects on your computer could use it. You could also install it locally, which means you install libraries on a project-by-project basis and no project will have any more dependencies available than it needs. The "sandbox" mentality means that we make sure each project stands alone, which means a lot when you may want to deploy these projects to remote computers.
@@ -52,7 +52,7 @@ We want to make the `cheeper` directory a `virtualenv` environment, so we run th
 $ virtualenv -p python2.7 cheeper/
 ```
 
-If you look inside `cheeper` now, you'll see that there are now 3 folders inside called `bin/`,`include/`, and `lib/`.
+If you look inside `cheeper` now, you'll see that there are now 4 folders inside called `bin/`,`include/`, `lib/`, and `local/`.
 
 To jump into the `virtualenv` you've created, `cd` into the `cheeper` directory and run:
 ```
@@ -77,4 +77,13 @@ We'll be using `virtualenv` more in the next section. If you're curious as to wh
 
 Step 3: Flask
 =====================================
-[Flask](http://flask.pocoo.org/) is a Python web framework. 
+[Flask](http://flask.pocoo.org/) is a Python web framework.
+
+After this point, make sure you're working in your `virtualenv`. (It should say "`(cheeper)`" at the left of your terminal prompt).
+
+To install Flask just run:
+```
+$ pip install flask
+```
+
+Wow that was simple (hopefully)! Remember that if at any point, stuff isn't installing/working properly, ask a neighbour the nearest H@B office for help.
