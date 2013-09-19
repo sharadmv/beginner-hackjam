@@ -11,7 +11,7 @@ After you finish this, you'll have:
 Step 1: Learn and install Python
 =========================
 
-The rest of the guide will assume some basic knowledge of the Python 2 language. Hopefully you've picked up from Python from 61A, but if you haven't, head over to the official Python [tutorial](http://docs.python.org/tutorial), which is pretty good! 
+The rest of the guide will assume some basic knowledge of the Python 2 language. Hopefully you've picked up some Python from 61A, but if you haven't, head over to the official Python [tutorial](http://docs.python.org/tutorial), which is pretty good! 
 
 You need to install Python 2.7 to complete this hack. You can do that [here](http://www.python.org/download/releases/2.7/).
 
