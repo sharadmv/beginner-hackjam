@@ -7,6 +7,7 @@ If you've never hacked before, don't be afraid! This is a guide that will help y
 After you finish this, you'll have:
 
 * Created a Flask web server
+* <insert more stuff here>
 
 Step 1: Learn and install Python
 =========================
@@ -25,8 +26,8 @@ Python has two amazing tools, called `virtualenv` and `pip` that enable develope
 The first thing you need is to make sure you have a Python package called `setuptools` installed. Here's how to install it:
 
 * Ubuntu: `sudo apt-get install python-setuptools`
-* OSX: 
-* Windows:
+* OSX: <insert OSX installation here>
+* Windows: <insert Windows installation here>
 
 
 
