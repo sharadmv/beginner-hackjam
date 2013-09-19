@@ -130,6 +130,44 @@ In it, put the following skeleton.
     <title>Cheeper - better than Twitter</title>
   </head>
   <body>
+  Hello World!
   </body>
 </html>
+```
+
+This is HTML, or HyperText Markup Language. It's a language that browsers understand and use to render web pages. In HTML files, you define the content and layout of your web page. `index.html` is the canonical name for the default web page that's rendered when you go to a site, so `index.html` will function as the home page.
+
+Right now, if you open the file in your web browser, you'll get a page that says "Hello World!", but on your tab, it should say what we put into the `<title>` tag.
+
+Now, I suggest reading up on the basics of HTML. Make sure you understand how to create forms. Here's a [Codecademy tutorial](http://www.codecademy.com/courses/web-beginner-en-Vfmnp/0/2) on creating web forms for your edification!
+
+So now for some user interface design (which is something I, the writer of this guide, am terrible at, so feel free to rage at my designs). And of course, if you are design inclined yourself, feel free to throw away my suggestions and use your own.
+
+Our Cheeper webpage should include some glamorous logo, a space to type your cheep and cheep it to the world. We also need a feed, for all the cheeps that have been cheeped.
+
+First let's add the logo, which will just be really big text. We can do this with the `<h1>`. Add an `<h1>` tag into the body of `index.html`, which will be our logo.
+
+```html
+...
+<body>
+  <h1>Cheeper</h1>
+</body>
+...
+```
+
+Now let's add the form to write and submit your cheeps. Cheeps are only 76 characters long, right?
+
+```html
+...
+<body>
+  <h1>Cheeper</h1>
+  <form>
+    Name:
+    <input type="text" /> 
+    Cheep:
+    <input type="text" maxlength="76"/> 
+    <input type="submit">
+  </form>
+</body>
+...
 ```
