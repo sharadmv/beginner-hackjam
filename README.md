@@ -74,7 +74,7 @@ To leave your `virtualenv`, just run:
 $ deactivate
 ```
 
-We'll be using `virtualenv` more in the next section. If you're curious as to what else it can do, look up more on [this site](https://pypi.python.org/pypi/virtualenv).
+We'll be in our `virtualenv` in the following sections. If you're curious as to what else it can do, look up more on [this site](https://pypi.python.org/pypi/virtualenv).
 
 Step 3: Setting up Flask
 =====================================
