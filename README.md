@@ -197,9 +197,9 @@ Step 5: Serving static webpages
 ===========================
 Our html page, `index.html` is only visible on our own computers right now. We need to hook it up to our Flask server, which is accessible from other computers. We can do this pretty easily with some Flask magic.
 
-Flask's job will be to grab `index.html` and return it for the route `/`.
+Flask's job will be to grab `index.html` and return it for the route `/`, the homepage.
 
-We can do this by modifying our `server.py`. Modify the `hello` method to return `index.html` instead.
+We can do this by modifying our `server.py`. Modify the `hello` method to return `index.html` instead using the `app.send_static_file` method.
 
 ```python
 ...
@@ -211,4 +211,59 @@ def hello():
 
 Restart your server to see the changes by going to `localhost:5000`.
 
-> *Note*: You can see your changes to `index.html` immediately by just refreshing, but you need to restart your server everytime you modify `server.py` to see the changes.
+> *Note*: You can see your changes to `index.html` immediately by just refreshing, but you need to restart your server (using Ctrl-C) everytime you modify `server.py` to see the changes.
+
+
+Woot! Your site should now have a basic form for submitting cheeps showing.
+
+Step 6: Sending requests to Flask
+==============================
+Let's quickly establish the notion of a *front end* and a *back end*. The front end is what the "client," or web browser sees. Anyone who visits your website is considered a user. The back end refers to the the application that handles storing, manipulating, and sending data back to the front end. Specifically in our hack, the front end corresponds to the files in `static/`, as they are what the user sees and interacts with. The back end corresponds with our `server.py`, so far. We'll be adding more files to our back end component later.
+
+Right now, Flask just spits out our `index.html` file. What we now want to do is to send the data inputted into your web form to Flask. In `index.html`, add an `action` attribute and a `method` attribute with the following values to your form.
+
+```html
+...
+<form action='/api/cheep' method='POST'>
+  Name:
+  <input name="name" type="text" /> 
+  Cheep:
+  <input name="cheep" type="text" maxlength="76" /> 
+  <input type="submit" />
+</form>
+```
+
+A form's *action* is the URL to which it submits its data. We're sending When you click the submit button, the form gathers all its data and sends it as an HTTP request to the given URL. Right now, we're sending the form data to the `/api/cheep` URL. The form's *method* is the HTTP [method](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Essentially, a POST request means that we want to *store* data on the server.
+
+Now that we send the data, we need to handle the data we receive in Flask.  Let's go back to `server.py`.
+
+First, add `request` to our list of imports from `flask`.
+```python
+from flask import Flask, request
+...
+```
+
+The request object allows us to get data and information about incoming HTTP requests.
+
+Now we need to create a route for `/api/cheep` to actually receive the data.
+
+Add the following method into your `server.py`. I'll explain what it does in a bit.
+
+```
+@app.route("/api/cheep", methods=["POST"])
+def receive_cheep():
+    print(request.form)
+    return "Success!"
+```
+
+> Note: at this point, you might be wondering what the `@app.route(...)` above the function definition does. It's what we call a function *decorator*. Decorators augments the behavior of a function. The `app.route` decorator makes your ordinary Python function into a server route. Pretty amazing! If you want to read more about decorators, check out [this link](http://www.shutupandship.com/2012/01/python-decorators-i-functions-that.html).
+
+In this new code we just added, we're adding a new route for `/api/cheep`, which would correspond the url `localhost:5000/api/cheep`. We make sre it handles POST requests by modifying the decorator. In the function body itself, we're just printing out the data sent up by the form (for debugging purposes) and then returning a success message.
+
+To test this out, restart your server and go to `localhost:5000`. Fill out your form with some data and hit the submit button. It should take you to a page that says "Success!" on it. Now look back at your server log (your terminal where you started the server). It should say something like: 
+```
+ImmutableMultiDict([('cheep', u'hello world!'), ('name', u'jbiebz5000')])
+```
+
+Of course, this will be filled with the data you submitted.
+
