@@ -91,7 +91,7 @@ Wow that was simple (hopefully)! Remember that if at any point, stuff isn't inst
 
 Okay, so let's get started with Flask. 
 
-First, what exactly is a web framework? When a person goes to a website, they send a request to that website, asking for the site's content. Since we're building the website, our web framework, Flask, will handle requests that are sent to us, and send back our site's content.
+First, what exactly is a web framework? When a person goes to a website, they send an HTTP request to that website, asking for the site's content. Since we're building the website, our web framework, Flask, will handle requests that are sent to us, and send back our site's content via HTTP response.
 
 Let's try running the "Hello World" example on the [Flask website](http://flask.pocoo.org).
 
@@ -258,12 +258,31 @@ def receive_cheep():
 
 > Note: at this point, you might be wondering what the `@app.route(...)` above the function definition does. It's what we call a function *decorator*. Decorators augments the behavior of a function. The `app.route` decorator makes your ordinary Python function into a server route. Pretty amazing! If you want to read more about decorators, check out [this link](http://www.shutupandship.com/2012/01/python-decorators-i-functions-that.html).
 
-In this new code we just added, we're adding a new route for `/api/cheep`, which would correspond the url `localhost:5000/api/cheep`. We make sre it handles POST requests by modifying the decorator. In the function body itself, we're just printing out the data sent up by the form (for debugging purposes) and then returning a success message.
+In this new code we just added, we're adding a new route for `/api/cheep`, which would correspond the url `localhost:5000/api/cheep`. We make sure it handles POST requests by modifying the decorator. In the function body itself, we're just printing out the data sent up by the form (for debugging purposes) and then returning a success message.
 
 To test this out, restart your server and go to `localhost:5000`. Fill out your form with some data and hit the submit button. It should take you to a page that says "Success!" on it. Now look back at your server log (your terminal where you started the server). It should say something like: 
 ```
 ImmutableMultiDict([('cheep', u'hello world!'), ('name', u'jbiebz5000')])
 ```
 
-Of course, this will be filled with the data you submitted.
+Don't worry exactly what this means. Just make sure it is filled with the data you submitted.
 
+Step 7: Take a break!
+===========================
+All right. There's a lot of information coming up. This is a good time to grab a drink, get some food and socialize a bit. Meet all the awesome people around you!
+
+Step 8: Storing our cheeps
+===========================
+So at this point, our HTML page should be sending successful requests to the Flask server.
+
+Our job will now be to store the cheeps that are sent up to Flask. We'll do this with a *database*. A database allows us to store data on the hard disk in some organized fashion; we'll should also be able to retrieve the data from the database easily.
+
+This is a very general pattern for web applications. The user will input some data on the front end. The data will be sent up via an HTTP request to the web server. The web server will then store the data in some sort of database. 
+
+Later, when the user wants to see their data, they'll request data from the web server via HTTP request, the server will ask the database for the data, then send it back down in the HTTP response.
+
+We'll be using the [sqlite](http://www.sqlite.org/about.html) database to store our cheeps. It's conveniently packaged with Python, so we don't need to install anything!
+
+Okay, so what's `sqlite`. Well, you might have heard of SQL before. It stands for *Structured Query Language* and it's a language you use to query a database for data, or simply put. In SQL databases, data is organized into *tables*, which have rows and columns. `sqlite` is just an example of a SQL database. If you're curious as to what differentiates `sqlite` from other databases, check out the [wiki page](http://en.wikipedia.org/wiki/SQLite).
+
+Let's begin using `sqlite`!
