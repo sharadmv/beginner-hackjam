@@ -283,6 +283,6 @@ Later, when the user wants to see their data, they'll request data from the web 
 
 We'll be using the [sqlite](http://www.sqlite.org/about.html) database to store our cheeps. It's conveniently packaged with Python, so we don't need to install anything!
 
-Okay, so what's `sqlite`. Well, you might have heard of SQL before. It stands for *Structured Query Language* and it's a language you use to query a database for data, or simply put. In SQL databases, data is organized into *tables*, which have rows and columns. `sqlite` is just an example of a SQL database. If you're curious as to what differentiates `sqlite` from other databases, check out the [wiki page](http://en.wikipedia.org/wiki/SQLite).
+Okay, so what's `sqlite`. Well, you might have heard of SQL before. It stands for *Structured Query Language* and it's a language you use to query a database for data. In SQL databases, data is organized into *tables*, which have rows and columns. `sqlite` is just an example of a SQL database. If you're curious as to what differentiates `sqlite` from other databases, check out the [wiki page](http://en.wikipedia.org/wiki/SQLite).
 
 Let's begin using `sqlite`!
