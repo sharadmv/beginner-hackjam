@@ -27,7 +27,7 @@ The first thing you need is to make sure you have a Python package called `setup
 
 * Ubuntu: `sudo apt-get install python-setuptools`
 * OSX: insert OSX installation here
-* Windows: insert Windows installation here
+* Windows: Download [https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py](ez_setup.py) and then run `python ez_setup.py`. Then add `C:\Python33\Scripts` (substitute `Python33` for whatever version of Python you're using) to your PATH.
 
 
 
@@ -173,7 +173,7 @@ Now let's add the form to write and submit your cheeps. Cheeps are only 76 chara
 ...
 ```
 
-Awesome! Our awesome, beautiful user interface is almost done. Let's now add a splace for the Cheeper© feed to appear.
+Awesome! Our awesome, beautiful user interface is almost done. Let's now add a space for the Cheeper© feed to appear.
 
 ```html
 ...
