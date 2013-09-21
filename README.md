@@ -14,7 +14,7 @@ Step 1: Learn and install Python
 
 The rest of the guide will assume some basic knowledge of the Python 2 language. Hopefully you've picked up some Python from 61A, but if you haven't, head over to the official Python [tutorial](http://docs.python.org/tutorial), which is pretty good! 
 
-You need to install Python 2.7 to complete this hack. You can do that [here](http://www.python.org/download/releases/2.7/).
+You need to install Python 2.7 to complete this hack. You can do that [here](http://www.python.org/download/releases/2.7/). If you have OSX, you already should have Python 2.7 installed.
 
 Step 2: Set up your environment
 ================================
@@ -26,7 +26,7 @@ Python has two amazing tools, called `virtualenv` and `pip` that enable develope
 The first thing you need is to make sure you have a Python package called `setuptools` installed. Here's how to install it:
 
 * Ubuntu: `sudo apt-get install python-setuptools`
-* OSX: insert OSX installation here
+* OSX: You're in luck! OSX comes with Python 2.7 and setuptools already installed.
 * Windows: insert Windows installation here
 
 
