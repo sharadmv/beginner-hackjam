@@ -106,7 +106,7 @@ If it says something like: "Running on http://127.0.0.1:5000", then it's working
 
 > *Note*: both `localhost` and `127.0.0.1` are addresses for your own computer and `5000` is the "port" number.
 
-Now that you have this working, please go through the examples on the Flask [quick start page](http://flask.pocoo.org/docs/quickstart/) and familiarize yourself with the Flask framework. Make sure you understand what a route is and how to do routing with Flask. Hint: decorators.
+Now that you have this working, please go through the examples on the Flask [quick start page](http://flask.pocoo.org/docs/quickstart/) and familiarize yourself with the Flask framework. You can stop once you hit [Accessing Request Data](http://flask.pocoo.org/docs/quickstart/#accessing-request-data). Make sure you understand what a route is and how to do routing with Flask. Hint: decorators.
 
 Step 4: Creating a user interface
 ===========================
@@ -273,7 +273,7 @@ All right. There's a lot of information coming up. This is a good time to grab a
 
 Step 8: Storing our cheeps
 ===========================
-So at this point, our HTML page should be sending successful requests to the Flask server.
+So at this point, our HTML page should be sending successful requests to the Flask server, but our cheeps aren't showing up on our home page!
 
 Our job will now be to store the cheeps that are sent up to Flask. We'll do this with a *database*. A database allows us to store data on the hard disk in some organized fashion; we'll should also be able to retrieve the data from the database easily.
 
@@ -285,4 +285,39 @@ We'll be using the [sqlite](http://www.sqlite.org/about.html) database to store 
 
 Okay, so what's `sqlite`. Well, you might have heard of SQL before. It stands for *Structured Query Language* and it's a language you use to query a database for data. In SQL databases, data is organized into *tables*, which have rows and columns. `sqlite` is just an example of a SQL database. If you're curious as to what differentiates `sqlite` from other databases, check out the [wiki page](http://en.wikipedia.org/wiki/SQLite).
 
-Let's begin using `sqlite`!
+Let's begin using `sqlite`! If you're curious, you can find the Python documentation for sqlite3 [here](http://docs.python.org/2/library/sqlite3.html).
+
+A database is a collection of tables. You can think of a table sort of like an Excel spreadsheet, where each column is a different piece of information that an entry needs, and each row is an entry in the table.
+
+Let's play with sqlite a bit first. Make a file called `temp_db.py` at the top level of your `cheeper` folder. Put the following in.
+```python
+import sqlite3
+conn = sqlite3.connect('temp.db')
+```
+This imports the sqlite package and opens a connection to the database file named `temp.db`. If the file doesn't exist, sqlite will create it automatically.
+```python
+c = conn.cursor()
+```
+We'll go more into detail on this later. A cursor basically points to a specific row in the database, which allows a programmer to make changes row by row. Now we can begin executing our SQL queries.
+```python
+c.execute("CREATE TABLE cheeps (name, datetime, cheep)")
+```
+This creates a table named `cheeps` inside the `temp.db` database with three columns: name, datetime, and cheep. Each cheep will need to have this information. Cool! Now let's try and add a cheep!
+```python
+c.execute("INSERT INTO cheeps VALUES ('richie', '100', 'Hello world!')")
+```
+This creates a cheep by the user `richie` with the text `Hello World!`, and that this cheep was created `100` seconds after January 1, 1970 (This is convention for how Python handles time.).
+
+Let's double check that this works. Now we can read from the database and we should be able to see our cheep!
+```python
+c.execute("SELECT * FROM cheeps")
+print(c.fetchall())
+```
+Now let's commit (save) the changes and close the connection.
+```python
+conn.commit()
+conn.close()
+```
+Now save the file and run it. It should create the `temp.db` file and print out something like `[(u'richie', u'100', u'Hello world!')]` to show that reading from the database was successful.
+
+Awesome! Hopefully now you have a basic idea of how sqlite works. Read this short guide in the Flask documentation: [Using SQLite 3 with Flask](http://flask.pocoo.org/docs/patterns/sqlite3/)
