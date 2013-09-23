@@ -18,7 +18,7 @@ Acknowledgements
 Step 0: Before you begin
 =========================
 Hacking is centered around collaboration. We all hear about those amazing people who create amazing hacks solo and release them to the world. However, I would argue that working alone is inefficient. If you find yourself getting stuck, don't just stare at the code for an hour. Instead, do the following:
-* Use Google! Results from [stackoverflow.com](stackoverflow.com) are an amazing resource. You get to utilize the knowledge of the global computer science developer community. However, don't just copy-paste answers from the web. Make sure you understand exactly what's going on before you copy-paste anything.
+* Use Google! Results from [stackoverflow.com](http://stackoverflow.com) are an amazing resource. You get to utilize the knowledge of the global computer science developer community. However, don't just copy-paste answers from the web. Make sure you understand exactly what's going on before you copy-paste anything.
 * Ask your neighbours. Working in groups is extremely productive as each of you can fill the gaps of knowledge the others have. Also, it's a good opportunity to make friends and find future potential project partners!
 * Ask H@B members for help. Hack Jam is a learning experience for most people. It's a good time to take on something new so many people will be in your situation. Don't be afraid to ask people at Hack Jam for help. Chances are, they'll be able to assist you in some way.
 
