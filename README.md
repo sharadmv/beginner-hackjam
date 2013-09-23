@@ -390,3 +390,58 @@ def receive_cheep():
 That should be everything you need to hook up to your database! Let's make sure it works! Add a tweet using the form on your homepage. It should take you to the page that says "Success!". Now, when you go back to the homepage and check your terminal window, you should see more cheeps getting printed out.
 
 Awesome! The database is hooked up and ready to go.
+
+Step 9: Displaying our cheeps
+===========================
+Even though the database is showing up, nothing is showing up on our page yet! That's because we're still serving a static html page. We need to write up a tempalte. Don't worry, it's not too bad. Hopefully you remember what you read in the flask quickstart guide earlier, if not check out the [Rendering Templates](http://flask.pocoo.org/docs/quickstart/#rendering-templates) section again.
+
+There are many templating languages out there, each with a slightly different syntax, but their use is basically the same. Think about what a Facebook profile looks like. Every user has a different Facebook profile: different photos, different friends, different posts. But it would be a pain of Facebook had to make a new static HTML page for each user. Instead, you'll notice that every Facebook profile has a the same basic structure and design. The cover photo is on the top, the profile picture is in the top left, and the wall goes down the middle of the profile. The goal of a templating language is to establish this basic structure, and then leave parts of it ready to be filled in based on the URL and any options you pass in.
+
+The templating language we're going to be using is called Jinja. It comes built in with Flask and is maintained by the same group that maintains Flask. You can learn more about it [here](http://jinja.pocoo.org/docs/). We're going to use it in a pretty basic way for now.
+
+First off, we need to make some changes to our `server.py` file to work with Jinja. Import `render_template` from flask. Your imports should look like this now.
+```python
+import sqlite3
+import time
+from flask import Flask, g, request, render_template
+````
+Now replace `send_static_file` with `render_template` inside of the `hello` function. Now it should look like this.
+```python
+@app.route("/")
+def hello():
+    cheeps = db_read_cheeps()
+    print(cheeps)
+    return render_template('index.html')
+```
+But wait, if you try to visit your homepage right now it won't show up! The problem now is that `render_template` looks for a folder called `templates` for all of your tempalte files. Right now our HTML file is in `static/index.html`! Create a folder called `templates` and copy/move `index.html` into it. Now your original homepage should appear again.
+
+So how does the template get the information from our server? Conveniently, `render_template` handles that for you! Simply pass in a keyword argument into your call to `render_temaplte`.
+```python
+    return render_template('index.html', cheeps=cheeps)
+```
+Now we can access the name `cheeps` from our `index.html` file. Take a glance at the [Template Designer Documentation](http://jinja.pocoo.org/docs/templates/). Lets `index.html` it and have it display our first cheep. Remember, a cheep is a tuple with three elements (name, time, cheep), and `cheeps` is a list of them. Find the div with the id `"feed"` and insert the following.
+```html
+<div id="feed">
+    <h2> Cheeps </h2>
+    <div class="cheep">
+        <b>{{ cheep[0][0] }}</b>
+        <p>{{ cheep[0][2] }}</p>
+    </div>
+</div>
+```
+But we don't want to show only ONE cheep, but we want to be able to list all of them. How do we do that? Well, with a for loop of course! 
+```html
+<div id="feed">
+    <h2> Cheeps </h2>
+    {% for cheep in cheeps %}
+    <div class="cheep">
+        <b>{{ cheep[0] }}</b>
+        <p>{{ cheep[2] }}</p>
+    </div>
+    {% endfor %}
+</div>
+```
+Now it should list all your cheeps!
+
+You've just built your first website! Show your friends! Tell your mom! Start a billion dollar company!
+[](http://makeameme.org/media/created/empty-roll-changed.jpg)
