@@ -392,7 +392,7 @@ Awesome! The database is hooked up and ready to go.
 
 Step 9: Displaying our cheeps
 ===========================
-Even though the database is showing up, nothing is showing up on our page yet! That's because we're still serving a static html page. We need to write up a tempalte. Don't worry, it's not too bad. Hopefully you remember what you read in the flask quickstart guide earlier, if not check out the [Rendering Templates](http://flask.pocoo.org/docs/quickstart/#rendering-templates) section again.
+Even though the database is showing up, nothing is showing up on our page yet! That's because we're still serving a static html page. We need to write up a template. Don't worry, it's not too bad. Hopefully you remember what you read in the flask quickstart guide earlier, if not check out the [Rendering Templates](http://flask.pocoo.org/docs/quickstart/#rendering-templates) section again.
 
 There are many templating languages out there, each with a slightly different syntax, but their use is basically the same. Think about what a Facebook profile looks like. Every user has a different Facebook profile: different photos, different friends, different posts. But it would be a pain of Facebook had to make a new static HTML page for each user. Instead, you'll notice that every Facebook profile has a the same basic structure and design. The cover photo is on the top, the profile picture is in the top left, and the wall goes down the middle of the profile. The goal of a templating language is to establish this basic structure, and then leave parts of it ready to be filled in based on the URL and any options you pass in.
 
@@ -412,7 +412,7 @@ def hello():
     print(cheeps)
     return render_template('index.html')
 ```
-But wait, if you try to visit your homepage right now it won't show up! The problem now is that `render_template` looks for a folder called `templates` for all of your tempalte files. Right now our HTML file is in `static/index.html`! Create a folder called `templates` and copy/move `index.html` into it. Now your original homepage should appear again.
+But wait, if you try to visit your homepage right now it won't show up! The problem now is that `render_template` looks for a folder called `templates` for all of your template files. Right now our HTML file is in `static/index.html`! Create a folder called `templates` and copy/move `index.html` into it. Now your original homepage should appear again.
 
 So how does the template get the information from our server? Conveniently, `render_template` handles that for you! Simply pass in a keyword argument into your call to `render_temaplte`.
 ```python
