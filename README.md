@@ -468,5 +468,5 @@ But we don't want to show only ONE cheep, but we want to be able to list all of 
 ```
 Now it should list all your cheeps!
 
-You've just built your first website! Show your friends! Tell your mom! Start a billion dollar company!
+You've just built your first hack! Show your friends! Tell your mom! Start a billion dollar company!
 ![](http://i0.kym-cdn.com/photos/images/newsfeed/000/185/885/SANDCASTLES.png?1318627593)
