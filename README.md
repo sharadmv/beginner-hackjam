@@ -7,7 +7,9 @@ If you've never hacked before, don't be afraid! This is a guide that will help y
 After you finish this, you'll have:
 
 * Created a Flask web server
-* insert more stuff here
+* Used a templating engine to render a web page
+* Used a web form to send information to a web server
+* Written SQL to populate and use a `sqlite` database
 
 Step 1: Learn and install Python
 =========================
@@ -87,7 +89,7 @@ To install Flask just run:
 $ pip install flask
 ```
 
-Wow that was simple (hopefully)! Remember that if at any point, stuff isn't installing/working properly, ask a neighbour the nearest H@B office for help.
+Wow that was simple (hopefully)! Remember that if at any point, stuff isn't installing/working properly, ask a neighbour or the nearest H@B office for help.
 
 Okay, so let's get started with Flask. 
 
