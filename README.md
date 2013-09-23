@@ -320,4 +320,45 @@ conn.close()
 ```
 Now save the file and run it. It should create the `temp.db` file and print out something like `[(u'richie', u'100', u'Hello world!')]` to show that reading from the database was successful.
 
-Awesome! Hopefully now you have a basic idea of how sqlite works. Read this short guide in the Flask documentation: [Using SQLite 3 with Flask](http://flask.pocoo.org/docs/patterns/sqlite3/)
+Awesome! Hopefully now you have a basic idea of how sqlite works. Now let's integrate it into our site. Read this short guide in the Flask documentation: [Using SQLite 3 with Flask](http://flask.pocoo.org/docs/patterns/sqlite3/)
+
+Let's steal the code they have in the beginning to get and close the database. We'll have to replace their call to `connect_to_database` to connect to our database. Also add in the necessary imports, including the `time` module, which we will be using soon. The top of your file should look something like this.
+
+```python
+import sqlite3
+import time
+from flask import Flask, request, g
+
+app = Flask(__name__)
+DATABASE = 'cheeps.db'
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+        if db is not None:
+    db.close()
+```
+
+Now we can write a few more helper functions to make it easier to interact with the database.
+```python
+def db_read_cheeps():
+    cur = get_db().cursor()
+    cur.execute("SELECT * FROM cheeps")
+    return cur.fetchall()
+```
+This (as the function name suggests) reads the cheeps from the database. The function `fetchall` returns them as a list.
+```python
+def db_add_cheep(name, cheep):
+    cur = get_db().cursor()
+    t = str(time.time())
+    cheep_info = (name, t, cheep)
+    cur.execute("INSERT INTO cheeps VALUES (?, ?, ?)", cheep_info)
+    get_db().commit()
+```
+Here we are using the `time` function in the `time` module to get the timestamp for the cheep. This gives us the number of seconds since the epoch (January 1, 1970). The `execute` function also allows us to pass in a tuple, so we can add in question marks in the query string and they will automatically get filled with the data in our `cheep_info` tuple. Finally, after we insert our cheep into the database, we need to commit the changes.
