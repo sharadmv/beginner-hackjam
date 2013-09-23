@@ -118,7 +118,6 @@ cheeper/
     bin/
     include/
     lib/
-    local/
     server.py
     static/
 ```
@@ -289,10 +288,10 @@ Let's begin using `sqlite`! If you're curious, you can find the Python documenta
 
 A database is a collection of tables. You can think of a table sort of like an Excel spreadsheet, where each column is a different piece of information that an entry needs, and each row is an entry in the table.
 
-Let's play with sqlite a bit first. Make a file called `temp_db.py` at the top level of your `cheeper` folder. Put the following in.
+Let's play with sqlite a bit first. Make a file called `init_db.py` at the top level of your `cheeper` folder. Put the following in.
 ```python
 import sqlite3
-conn = sqlite3.connect('temp.db')
+conn = sqlite3.connect('cheeps.db')
 ```
 This imports the sqlite package and opens a connection to the database file named `temp.db`. If the file doesn't exist, sqlite will create it automatically.
 ```python
@@ -318,7 +317,7 @@ Now let's commit (save) the changes and close the connection.
 conn.commit()
 conn.close()
 ```
-Now save the file and run it. It should create the `temp.db` file and print out something like `[(u'richie', u'100', u'Hello world!')]` to show that reading from the database was successful.
+Now save the file and run it. It should create the `cheeps.db` file and print out something like `[(u'richie', u'100', u'Hello world!')]` to show that reading from the database was successful.
 
 Awesome! Hopefully now you have a basic idea of how sqlite works. Now let's integrate it into our site. Read this short guide in the Flask documentation: [Using SQLite 3 with Flask](http://flask.pocoo.org/docs/patterns/sqlite3/)
 
@@ -341,8 +340,8 @@ def get_db():
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
-        if db is not None:
-    db.close()
+    if db is not None:
+        db.close()
 ```
 
 Now we can write a few more helper functions to make it easier to interact with the database.
