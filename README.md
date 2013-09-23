@@ -362,3 +362,31 @@ def db_add_cheep(name, cheep):
     get_db().commit()
 ```
 Here we are using the `time` function in the `time` module to get the timestamp for the cheep. This gives us the number of seconds since the epoch (January 1, 1970). The `execute` function also allows us to pass in a tuple, so we can add in question marks in the query string and they will automatically get filled with the data in our `cheep_info` tuple. Finally, after we insert our cheep into the database, we need to commit the changes.
+
+Now that we have all the database logic, we can add it into our route functions. We want all the most recent cheeps to appear on the home page, so the `hello` function should use the `db_read_cheeps` function to display the list of cheeps. Before we do the logic to display the cheeps, let's first double check that this works by simply printing out the cheeps.
+```python
+@app.route("/")
+def hello():
+    cheeps = db_read_cheeps()
+    print(cheeps)
+    return app.send_static_file('index.html')
+```
+This won't change anything when you visit your homepage, but if you check your terminal window running the server, you should see the list of cheeps getting printed out. You should have one cheep in there if you ran the `init_db.py` script. Something like this.
+```
+(cheeper)Richies-MacBook-Air:cheeper richzeng$ python server.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+[(u'richie', u'100', u'Hello world!')]
+127.0.0.1 - - [22/Sep/2013 17:45:53] "GET / HTTP/1.1" 304 -
+```
+Now we need to add in logic to save the cheeps once we submit the form. For that, we'll need to edit the `receive_cheap` function. Remember the `request.form`? That is basically a dictionary containing all the data we submitted in the form. We'll need to grab that data and pass it into our `db_add_cheep` function.
+```python
+@app.route("/api/cheep", methods=["POST"])
+def receive_cheep():
+    print(request.form)
+    db_add_cheep(request.form['name'], request.form['cheep'])
+    return "Success!"
+```
+That should be everything you need to hook up to your database! Let's make sure it works! Add a tweet using the form on your homepage. It should take you to the page that says "Success!". Now, when you go back to the homepage and check your terminal window, you should see more cheeps getting printed out.
+
+Awesome! The database is hooked up and ready to go.
