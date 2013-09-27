@@ -8,7 +8,9 @@ Setting up
 ================
 You can download Bootstrap [here](http://getbootstrap.com/getting-started/).
 
-You're going to get a zip file called `bootstrap-3.0.0-dist.zip` with the folders `css`, `fonts`, and `js`. Copy those three folders into your `static` folder. You'll also need jQuery, which is a widely used Javscript library that makes it easier to add interactive elements to your website. Download it from [here](http://code.jquery.com/jquery-2.0.3.js) and put it in your `static/js` folder. Now you're ready to use bootstrap!
+You're going to get a zip file called `bootstrap-3.0.0-dist.zip` with the folders `css`, `fonts`, and `js`. The `css` folder contains all the CSS (Cascading Style Sheet) files that describe how certain elements in HTML look. The `fonts` folder contains custom Bootstrap fonts that are used by the CSS files. The `js` fonts contains logic for cool interactive elements such as those shown [here](http://getbootstrap.com/javascript/).
+
+Copy those three folders into your `static` folder. You'll also need jQuery, which is a widely used Javscript library that makes it easier to add interactive elements to your website. Download it from [here](http://code.jquery.com/jquery-2.0.3.js) and put it in your `static/js` folder. Now you're ready to use bootstrap!
 
 First steps
 ================
@@ -22,3 +24,15 @@ We're going to have to make some changes to this file, namely with the file path
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 ```
+Change these paths to link to your local files in your `static` directory.
+
+You might also notice that the source code links to a custom CSS file specifically for this demo.
+```html
+<!-- Custom styles for this template -->
+<link href="starter-template.css" rel="stylesheet">
+```
+Copy over the contents of `starter-templates.css`, but let's name our file `cheeper.css` and put it in the (you guessed it) `static/css` folder, don't forget to change the file path. From now on, you can use this CSS file for all the custom CSS that you need for your site page.
+
+At this point, the starter template should be up and running on your site. Awesome! Take the time to explore the Bootstrap documentation and see what you can add on for your site. This site is yours now, and you can do whatever you want with it :)
+
+![](http://i.qkme.me/3pgeaz.jpg)
