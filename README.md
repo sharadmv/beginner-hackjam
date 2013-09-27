@@ -478,6 +478,7 @@ Now you've probably gotten a good taste of web development. There are a ton of t
 Extending the functionality
 * Order tweets by most recent ones first
 * Display how long ago the tweet was made
+* Make the Cheep post success page redirect to your home.
 * Display only the first 10 tweets, with an option to laod more
 * Make a user login and registration system
 * Add followers
