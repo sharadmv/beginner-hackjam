@@ -470,3 +470,21 @@ Now it should list all your cheeps!
 
 You've just built your first hack! Show your friends! Tell your mom! Start a billion dollar company!
 ![](http://i0.kym-cdn.com/photos/images/newsfeed/000/185/885/SANDCASTLES.png?1318627593)
+
+Step 10: Afterward
+===========================
+Now you've probably gotten a good taste of web development. There are a ton of things you can do from here! Here are a few ideas.
+
+Extending the functionality
+* Order tweets by most recent ones first
+* Display how long ago the tweet was made
+* Display only the first 10 tweets, with an option to laod more
+* Make a user login and registration system
+* Add followers
+* Add a news feed
+
+Going further
+* Make your site pretty with Bootstrap
+* Deploy your site to the interwebz
+* Make an Android app
+* Make an iOS app
