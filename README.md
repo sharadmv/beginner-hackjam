@@ -27,7 +27,7 @@ With all this in mind, several H@B members have volunteered to assist people wit
 <table>
     <tr>
     <td><img src="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/imgs/gsis/sharad-vikram.jpg" width="200" height="auto"></td>
-    <td><img src="<insert richie image here>" width="200" height="auto"></td>
+    <td><img src="https://lh3.googleusercontent.com/-oqbtv7g-ots/UcSbxgu4p3I/AAAAAAAACMc/SbXRYSe_eus/s604-no/920146_10151641982947594_144941694_o.jpg" width="200" height="auto"></td>
     </tr>
     <tr>
     <td>Sharad Vikram</td>
