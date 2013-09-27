@@ -484,7 +484,7 @@ Extending the functionality
 * Add a news feed
 
 Going further
-* Make your site pretty with Bootstrap
+* [Make your site pretty with Bootstrap](https://github.com/sharadmv/beginner-hackjam/tree/master/bootstrap)
 * Deploy your site to the interwebz
 * Make an Android app
 * Make an iOS app
