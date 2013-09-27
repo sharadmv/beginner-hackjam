@@ -113,7 +113,7 @@ To install Flask just run:
 $ pip install flask
 ```
 
-Wow that was simple (hopefully)! Remember that if at any point, stuff isn't installing/working properly, ask a neighbour or the nearest H@B office for help.
+Wow that was simple (hopefully)! Remember that if at any point, stuff isn't installing/working properly, ask a neighbour or the nearest H@B officer for help.
 
 Okay, so let's get started with Flask. 
 
@@ -258,7 +258,7 @@ Right now, Flask just spits out our `index.html` file. What we now want to do is
 </form>
 ```
 
-A form's *action* is the URL to which it submits its data. We're sending When you click the submit button, the form gathers all its data and sends it as an HTTP request to the given URL. Right now, we're sending the form data to the `/api/cheep` URL. The form's *method* is the HTTP [method](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Essentially, a POST request means that we want to *store* data on the server.
+A form's *action* is the URL to which it submits its data. When you click the submit button, the form gathers all its data and sends it as an HTTP request to the given URL. Right now, we're sending the form data to the `/api/cheep` URL. The form's *method* is the HTTP [method](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Essentially, a POST request means that we want to *store* data on the server.
 
 Now that we send the data, we need to handle the data we receive in Flask.  Let's go back to `server.py`.
 
@@ -319,7 +319,7 @@ Let's play with sqlite a bit first. Make a file called `init_db.py` at the top l
 import sqlite3
 conn = sqlite3.connect('cheeps.db')
 ```
-This imports the sqlite package and opens a connection to the database file named `temp.db`. If the file doesn't exist, sqlite will create it automatically.
+This imports the sqlite package and opens a connection to the database file named `cheeps.db`. If the file doesn't exist, sqlite will create it automatically.
 ```python
 c = conn.cursor()
 ```
@@ -327,7 +327,7 @@ We'll go more into detail on this later. A cursor basically points to a specific
 ```python
 c.execute("CREATE TABLE cheeps (name, datetime, cheep)")
 ```
-This creates a table named `cheeps` inside the `temp.db` database with three columns: name, datetime, and cheep. Each cheep will need to have this information. Cool! Now let's try and add a cheep!
+This creates a table named `cheeps` inside the `cheeps.db` database with three columns: name, datetime, and cheep. Each cheep will need to have this information. Cool! Now let's try and add a cheep!
 ```python
 c.execute("INSERT INTO cheeps VALUES ('richie', '100', 'Hello world!')")
 ```
@@ -343,7 +343,7 @@ Now let's commit (save) the changes and close the connection.
 conn.commit()
 conn.close()
 ```
-Now save the file and run it. It should create the `cheeps.db` file and print out something like `[(u'richie', u'100', u'Hello world!')]` to show that reading from the database was successful.
+Now save the file and run it with `python init_db.py`. It should create the `cheeps.db` file and print out something like `[(u'richie', u'100', u'Hello world!')]` to show that reading from the database was successful.
 
 Awesome! Hopefully now you have a basic idea of how sqlite works. Now let's integrate it into our site. Read this short guide in the Flask documentation: [Using SQLite 3 with Flask](http://flask.pocoo.org/docs/patterns/sqlite3/)
 

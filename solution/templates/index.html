@@ -1,24 +1,51 @@
 <html>
   <head>
     <title>Cheeper - better than Twitter</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#send').click(function(event){
+          cheep = {
+            name : $("#name").val(),
+            cheep : $("#cheep").val(),
+          }
+          ws.send(JSON.stringify(cheep));
+          return false;
+        });
+        if ("WebSocket" in window) {
+          ws = new WebSocket("ws://" + document.domain + ":5000/ws");
+          ws.onmessage = function (msg) {
+            data = msg.data;
+            data = JSON.parse(data);
+            $("#feed").append("<b>"+data.name+"</b><p>"+data.cheep+"</p>");
+          };
+          ws.onclose = function() {
+            console.log("Closed");
+          }
+        } else {
+          alert("WebSocket not supported");
+        }
+      });
+    </script>
   </head>
   <body>
     <h1>Cheeper</h1>
-    <form action='/api/cheep' method='POST'>
+    <form>
       Name:
-      <input name="name" type="text" /> 
+      <input id='name' name="name" type="text" /> 
       Cheep:
-      <input name="cheep" type="text" maxlength="76" /> 
-      <input type="submit" />
+      <input id='cheep' name="cheep" type="text" maxlength="76" /> 
+      <button id='send' value='Send'>Send</button>
     </form>
     <div id="feed">
       <h2> Cheeps </h2>
         {% for cheep in cheeps %}
-        <div class="cheep">
+        <div class="cheepDiv">
             <b>{{ cheep[0] }}</b>
             <p>{{ cheep[2] }}</p>
         </div>
         {% endfor %}
     </div>
+    <div id="log"></div>
   </body>
 </html>
