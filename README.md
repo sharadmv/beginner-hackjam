@@ -321,7 +321,7 @@ Let's play with sqlite a bit first. Make a file called `init_db.py` at the top l
 import sqlite3
 conn = sqlite3.connect('cheeps.db')
 ```
-This imports the sqlite package and opens a connection to the database file named `temp.db`. If the file doesn't exist, sqlite will create it automatically.
+This imports the sqlite package and opens a connection to the database file named `cheeps.db`. If the file doesn't exist, sqlite will create it automatically.
 ```python
 c = conn.cursor()
 ```
