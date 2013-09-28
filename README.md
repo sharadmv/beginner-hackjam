@@ -470,6 +470,19 @@ But we don't want to show only ONE cheep, but we want to be able to list all of 
 ```
 Now it should list all your cheeps!
 
+One more thing, let's remove that dumb "Success!" page after you post a cheep. That would be in your `receive_cheep` function.
+Import the function `redirect` from `flask` at the top of your `server.py` file. As you might've guessed, `redirect` will redirect you to a different page, in our case, back to the home page!
+
+Replace the line
+```python
+return "Success!"
+```
+with
+```python
+return redirect("/")
+```
+Now your site should redirect to the homepage after you post a cheep! 
+
 You've just built your first hack! Show your friends! Tell your mom! Start a billion dollar company!
 ![](http://i0.kym-cdn.com/photos/images/newsfeed/000/185/885/SANDCASTLES.png?1318627593)
 
