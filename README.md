@@ -77,7 +77,7 @@ $ cd cheeper
 
 We want to make the `cheeper` directory a `virtualenv` environment, so we run the command:
 ```
-$ virtualenv -p python2.7 venv
+$ virtualenv -p python2.7 venv --distribute
 ```
 
 If you look inside `cheeper/` now, you'll see that there is a folder called `venv/` with 3 folders inside called `bin/`,`include/`, and `lib/`.
