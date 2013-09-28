@@ -72,21 +72,22 @@ Now that you have `virtualenv` installed, you have to create a folder for your p
 
 ```
 $ mkdir cheeper
+$ cd cheeper
 ```
 
 We want to make the `cheeper` directory a `virtualenv` environment, so we run the command:
 ```
-$ virtualenv -p python2.7 cheeper/
+$ virtualenv -p python2.7 venv --distribute
 ```
 
-If you look inside `cheeper` now, you'll see that there are now 4 folders inside called `bin/`,`include/`, `lib/`, and `local/`.
+If you look inside `cheeper/` now, you'll see that there is a folder called `venv/` with 3 folders inside called `bin/`,`include/`, and `lib/`.
 
-To jump into the `virtualenv` you've created, `cd` into the `cheeper` directory and run:
+To jump into the `virtualenv` you've created, make sure you're in the `cheeper` directory and run:
 ```
-$ source bin/activate
+$ source venv/bin/activate
 ```
 
-Your terminal prompt should now have a `(cheeper)` at the front. This is how you know you're inside your virtual environment. 
+Your terminal prompt should now have a `(venv)` at the front. This is how you know you're inside your virtual environment. 
 
 
 Whoa, this is awesome. You're in your own sandbox now. You can see what libraries you currently have installed by running:
@@ -106,7 +107,7 @@ Step 3: Setting up Flask
 =====================================
 [Flask](http://flask.pocoo.org/) is a Python web framework.
 
-After this point, make sure you're working in your `virtualenv`. (It should say "`(cheeper)`" at the left of your terminal prompt).
+After this point, make sure you're working in your `virtualenv`. (It should say "`(venv)`" at the left of your terminal prompt).
 
 To install Flask just run:
 ```
@@ -141,9 +142,10 @@ Let's create our home page for Cheeper©. Create a directory in your `cheeper` d
 Your project directory should look like this now:
 ```
 cheeper/
-    bin/
-    include/
-    lib/
+    venv/
+        bin/
+        include/
+        lib/
     server.py
     static/
 ```
