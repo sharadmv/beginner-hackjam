@@ -451,8 +451,8 @@ Now we can access the name `cheeps` from our `index.html` file. Take a glance at
 <div id="feed">
     <h2> Cheeps </h2>
     <div class="cheep">
-        <b>{{ cheep[0][0] }}</b>
-        <p>{{ cheep[0][2] }}</p>
+        <b>{{ cheeps[0][0] }}</b>
+        <p>{{ cheeps[0][2] }}</p>
     </div>
 </div>
 ```
