@@ -274,7 +274,7 @@ The request object allows us to get data and information about incoming HTTP req
 
 Now we need to create a route for `/api/cheep` to actually receive the data.
 
-Add the following method into your `server.py`. I'll explain what it does in a bit.
+Add the following method into your `server.py` before the `if __name__ == "__main__":`. I'll explain what it does in a bit.
 
 ```python
 @app.route("/api/cheep", methods=["POST"])
