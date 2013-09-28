@@ -489,6 +489,6 @@ Extending the functionality
 
 Going further
 * [Make your site pretty with Bootstrap](https://github.com/sharadmv/beginner-hackjam/tree/master/bootstrap)
-* Deploy your site to the interwebz
+* [Deploy your site to the interwebz with Heroku](https://github.com/sharadmv/beginner-hackjam/tree/master/heroku)
 * Make an Android app
 * Make an iOS app
