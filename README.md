@@ -53,7 +53,7 @@ The first thing you need is to make sure you have a Python package called `setup
 
 * Ubuntu: `sudo apt-get install python-setuptools`
 * OSX: You're in luck! OSX comes with Python 2.7 and setuptools already installed.
-* Windows: Download [https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py](ez_setup.py) and then run `python ez_setup.py`. Then add `C:\Python27\Scripts` (substitute `Python27` for whatever version of Python you're using) to your PATH.
+* Windows: Download the file from https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py and then run `python ez_setup.py`. Then add `C:\Python27\Scripts` (substitute `Python27` for whatever version of Python you're using) to your PATH.
 
 
 
