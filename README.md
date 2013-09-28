@@ -442,7 +442,7 @@ def hello():
 ```
 But wait, if you try to visit your homepage right now it won't show up! The problem now is that `render_template` looks for a folder called `templates` for all of your template files. Right now our HTML file is in `static/index.html`! Create a folder called `templates` and copy/move `index.html` into it. Now your original homepage should appear again.
 
-So how does the template get the information from our server? Conveniently, `render_template` handles that for you! Simply pass in a keyword argument into your call to `render_temaplte`.
+So how does the template get the information from our server? Conveniently, `render_template` handles that for you! Simply pass in a keyword argument into your call to `render_template`.
 ```python
     return render_template('index.html', cheeps=cheeps)
 ```
