@@ -251,7 +251,7 @@ Right now, Flask just spits out our `index.html` file. What we now want to do is
 
 ```html
 ...
-<form action='/api/cheep' method='POST'>
+<form action='/api/cheep' method="POST">
   Name:
   <input name="name" type="text" /> 
   Cheep:
