@@ -74,3 +74,25 @@ ws.onclose = function() {
 }
 ```
  We're setting functions that will be called in the future when this events will happen. These functions are called *callbacks*. We don't have to worry about anything else. The websocket library in javascript will trigger the events and call the callbacks for us. All we need to do is specify what happens, and we're done!
+
+ Sending messages is the same as before!
+
+ ```javascript
+ ws.send("hello world!");
+ ```
+
+We're replacing the form functionality with websockets, which means we need to aggregate the data in the file and send it to the server over the websocket via our protocol.
+
+To get this data, I suggest you use *jQuery*, an amazing javascript plugin that allows you to manipulate HTML like a god. You can download jQuery [here](http://jquery.com/). Add it to your html page with a `<script>` tag but make sure to serve it up on a route in Flask beforehand, just like you did with the static `index.html` before.
+
+If your given html tag has `id='blah'`, you can access the value it has by saying `$("#blah").val()`. This will allow you to grab the data from the existing form elements.
+
+The last important thing you'll need to know is how to get events from the browser, such as a button click or a key press.
+Suppose you have a button with `id='send'`. You can set up a callback for the click event by saying:
+```javascript
+    $("#send").click(function() {
+        //do something
+    })
+```
+
+All right. Those are all the individual pieces needed to make this happen. Now it's up to you to figure out how to join them all together. There's a working solution in this directory for your reference if you ever get stuck. But.
