@@ -478,14 +478,15 @@ Step 10: Afterward
 Now you've probably gotten a good taste of web development. There are a ton of things you can do from here! Here are a few ideas. We've written a couple mini tutorials that will help you out.
 
 Extending the functionality
-* [Make your cheeps realtime](https://github.com/sharadmv/beginner-hackjam/tree/master/websocket)
 * Order tweets by most recent ones first
 * Display how long ago the tweet was made
 * Make the Cheep post success page redirect to your home.
 * Display only the first 10 tweets, with an option to laod more
+* Allow image/video cheeps
 * Make a user login and registration system
 * Add followers
 * Add a news feed (ranking tweets, updates in real time)
+* [Make your cheeps appear in realtime](https://github.com/sharadmv/beginner-hackjam/tree/master/websocket)
 
 Going further
 * [Make your site pretty with Bootstrap](https://github.com/sharadmv/beginner-hackjam/tree/master/bootstrap)
