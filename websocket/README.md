@@ -11,7 +11,10 @@ Websockets are a persistent connection between a client and the server that allo
 
 There are two portions to websockets: a client and a server. Let's work on the server. 
 
-Adding websocket functionality to the server is annoying due to a Flask limitation, but it's still possible using the `gevent` library and the `gevent-websocket` library. Install these with `pip`. (You may be missing some operating system dependencies, such as `libevent` s you'll need to figure out how to install these). Once you have these installed, you'll need to integrate it with your Flask server.
+Step 1: Websocket server
+---------------------------
+
+Adding websocket functionality to the server is annoying due to a Flask limitation, but it's still possible using the `gevent` library and the `gevent-websocket` library. Install these with `pip`. (You may be missing some operating system dependencies, such as `libevent`. You'll need to figure out how to install these). Once you have these installed, you'll need to integrate it with your Flask server.
 
 To add websocket functionality to our server, add this to the beginning of your `server.py` file.
 ```python
@@ -50,3 +53,13 @@ Things to consider:
 * When a websocket route returns, the websocket is terminated, meaning you have to keep the request alive forever. Consider using a `while True:`.
 * You have to maintain a list of everyone's websockets so that you can broadcast the latest cheep to everyone via their websocket
 * You have to devise some sort of protocol for the client and server to communicate to each other. Websockets support sending strings, so you'll need to organize how you send down information. Consider using `json`.
+
+Step 2: Websocket client
+------------------------
+Writing the websocket client will be very much different than how the server was structured, but the nice part is that most of the logic has been written already. By this point, you should have a Flask server that has a route for websockets and broadcasts updates to all the websockets via some protocol you have devised.
+
+All the client will do is instead of sending cheeps via a form, we'll send the information through the websocket. Here's how you would construct a websocket on the client side. It's all done in javascript.
+
+```javascript
+ws = new WebSocket("ws://" + document.domain + ":5000/ws");
+```
