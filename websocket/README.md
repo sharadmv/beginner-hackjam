@@ -63,3 +63,14 @@ All the client will do is instead of sending cheeps via a form, we'll send the i
 ```javascript
 ws = new WebSocket("ws://" + document.domain + ":5000/ws");
 ```
+The protocol on the client side is *event based*. Whereas before, we imperatively call methods on the websockets object, now the websocket kinda hangs around until something happens. The important events are `onmessage` and `onclose`. `onmessage` is triggered when we receive a string from the server, and `onclose` happens when the connection is terminated.
+
+```javascript
+ws.onmessage = function(message) {
+    //do something
+}
+ws.onclose = function() {
+    //do something
+}
+```
+ We're setting functions that will be called in the future when this events will happen. These functions are called *callbacks*. We don't have to worry about anything else. The websocket library in javascript will trigger the events and call the callbacks for us. All we need to do is specify what happens, and we're done!
