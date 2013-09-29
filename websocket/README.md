@@ -95,4 +95,4 @@ Suppose you have a button with `id='send'`. You can set up a callback for the cl
     })
 ```
 
-All right. Those are all the individual pieces needed to make this happen. Now it's up to you to figure out how to join them all together. There's a working solution in this directory for your reference if you ever get stuck. But.
+All right. Those are all the individual pieces needed to make this happen. Now it's up to you to figure out how to join them all together. There's a working solution in this directory for your reference if you ever get stuck.
