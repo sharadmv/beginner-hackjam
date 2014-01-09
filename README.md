@@ -400,7 +400,7 @@ def hello():
 ```
 This won't change anything when you visit your homepage, but if you check your terminal window running the server, you should see the list of cheeps getting printed out. You should have one cheep in there if you ran the `init_db.py` script. Something like this.
 ```
-(cheeper)Richies-MacBook-Air:cheeper richzeng$ python server.py
+(venv)Richies-MacBook-Air:cheeper richzeng$ python server.py
  * Running on http://127.0.0.1:5000/
  * Restarting with reloader
 [(u'richie', u'100', u'Hello world!')]
