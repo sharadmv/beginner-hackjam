@@ -260,7 +260,7 @@ Right now, Flask just spits out our `index.html` file. What we now want to do is
 </form>
 ```
 
-A form's *action* is the URL to which it submits its data. We're sending When you click the submit button, the form gathers all its data and sends it as an HTTP request to the given URL. Right now, we're sending the form data to the `/api/cheep` URL. The form's *method* is the HTTP [method](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Essentially, a POST request means that we want to *store* data on the server.
+A form's *action* is the URL to which it submits its data. When you click the submit button, the form gathers all its data and sends it as an HTTP request to the given URL. Right now, we're sending the form data to the `/api/cheep` URL. The form's *method* is the HTTP [method](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Essentially, a POST request means that we want to *store* data on the server.
 
 Now that we send the data, we need to handle the data we receive in Flask.  Let's go back to `server.py`.
 
