@@ -349,7 +349,7 @@ Now save the file and run it by doing `python init_db.py`. It should create the 
 
 Awesome! Hopefully now you have a basic idea of how sqlite works. Now let's integrate it into our site. Read this short guide in the Flask documentation: [Using SQLite 3 with Flask](http://flask.pocoo.org/docs/patterns/sqlite3/)
 
-Let's steal the code they have in the beginning to get and close the database. We'll add this to our `server.py` file. We'll have to replace their call to `connect_to_database` to connect to our database. Also add in the necessary imports, including the `time` module, which we will be using soon. The top of your `servery.py` file should look something like this.
+Let's steal the code they have in the beginning to get and close the database. We'll add this to our `server.py` file. We'll have to replace their call to `connect_to_database` to connect to our database. Also add in the necessary imports, including the `time` module, which we will be using soon. The top of your `server.py` file should look something like this.
 
 ```python
 import sqlite3
