@@ -56,14 +56,15 @@ def api():
     if request.environ.get('wsgi.websocket'):
         global counter
         ws = request.environ['wsgi.websocket']
-        websockets[counter] = ws
+        current = counter
+        websockets[current] = ws
         counter += 1
         while True:
             message = ws.receive()
             message = json.loads(message)
             db_add_cheep(message['name'], message['cheep'])
             send_message(message)
-        del websockets[counter - 1]
+        del websockets[current]
         return
     return "No Websocket"
 
